@@ -58,6 +58,8 @@ def animate(i):
         next_node = successor
         break
     if next_node is not None:
+      G.node[particle.current_node]["particles"].remove(particle)
+      G.node[next_node]["particles"].append(particle)
       particle.current_node = next_node
 
   nx.draw_networkx_edges(G,pos,edge_color=weights,
